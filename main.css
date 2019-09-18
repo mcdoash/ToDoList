@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.button {
+    padding: 5px;
+    margin: 2%;
+    cursor: pointer;
+    background-color: #ddd;
+}
+.checked {
+    border: 2px solid red;
+}
+.highlighted {
+    background-color: yellow;
+}
+
+#list {
+    width: 70%;
+    padding: 50px;
+    display: inline-block;
+}
+#add-item * {
+    display: inline-block;
+}
+.item {
+    margin: 2% 0;
+}
+.item * {
+    display: inline-block;
+}
+.item input[type=checkbox] {
+    height: 1.5rem;
+}
+
+
+#sidebar {
+    width: 25%;
+    padding: 50px;
+    display: inline-block;
+}
