@@ -88,20 +88,6 @@ function toggleHighlight() {
 }
 
 
-/*Adds the class "checked" to every item (div) with a checked checkbox
-function addCheckedClass() {
-     var listItems = document.getElementsByClassName("item");
-    
-    
-    for(var i=0; i<listItems.length; i++){
-        //get checkbox
-        var checkbox = listItems[i].firstChild.firstChild;
-        if(checkbox.checked) {
-           listItems[i].classList.add("checked");
-        } 
-    }
-}*/
-
 //Adds the class "checked" to every item (div) with a checked checkbox
 function addCheckedClass() {
      var checkboxes = document.getElementsByName("checkbox");
@@ -117,6 +103,36 @@ function addCheckedClass() {
 
 function sortItems() {
     //sort items alphanumerically
+    var item = document.getElementsByClassName("item");
+    var list = document.getElementById("listItems");
+    var text = [];
+    
+    for(var i=0; i<item.length; i++) {
+        text.push(item[i].textContent);
+    }
+    
+    var h = []
+    for(var i=0; i<item.length; i++) {
+        h.push([i, text[i]]);
+    }
+    
+    h.sort(secondColumnSort);
     
     //remove element and append it to the top of the list
+    for(var i=0; i<item.length; i++) {
+        console.log(item[h[i][0]].textContent);
+        list.insertBefore(item[h[i][0]], list.childNodes.firstChild);
+        list.removeChild(list.childNodes[h[i][0]]);
+    }
+}
+
+
+
+function secondColumnSort(a, b) {
+    if (a[1] == b[1]) {
+        return 0;
+    }
+    else {
+        return (a[1] < b[1]) ? -1 : 1;
+    }
 }
