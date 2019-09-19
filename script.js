@@ -18,7 +18,7 @@ function addItem() {
     
     if(validItem(itemName)) {
         //clear form
-        document.getElementById("add-item").reset();
+        document.getElementById("addItem").reset();
         
         //create new div element to hold all the new item elements
         var newItem = document.createElement("li");

@@ -14,23 +14,33 @@
     </head>
     
     <body>
-        <div id="list">
-            <form name="addItem" id="add-item">
-                <input type="text" name="itemName" placeholder="Enter item...">
-                <div class="button" id="add">Add</div>
-            </form>
-            
-            <ul id="listItems">
-                <!--list items will appear here as they are added by user-->
-            </ul>
+        <div id="wrapper">
+            <div id="list">
+                <form name="addItem" id="addItem">
+                    <div class="inputSection">
+                        <input type="text" name="itemName" placeholder="Enter item...">
+                    </div>
+                    <div class="inputSection">
+                        <i class="far fa-clock fa-lg"></i>
+                        <input type="number" name="hours" placeholder="0" min="0">H
+                        <input type="number" name="minutes" placeholder="0" min="0" max="59">M
+                    </div>
+                    <div class="inputSection" id="add">
+                        <div class="button"><i class="fas fa-plus fa-lg"></i></div>
+                    </div>
+                </form>
+
+                <ul id="listItems">
+                    <!--list items will appear here as they are added by user-->
+                </ul>
+            </div>
+
+            <div id="sidebar">
+                <div id="remove" class="button">Remove Checked</div>
+                <div id="highlight" class="button">Toggle Highlight</div>
+                <div id="sort" class="button">Sort</div>
+            </div>
         </div>
-        
-        <div id="sidebar">
-            <div id="remove" class="button">Remove Checked</div>
-            <div id="highlight" class="button">Toggle Highlight</div>
-            <div id="sort" class="button">Sort</div>
-        </div>
-        
     </body>
 
     <script src="script.js"></script>

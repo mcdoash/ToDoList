@@ -4,39 +4,90 @@
 }
 html {
     font-size: 16px;
+    color: #1a1a1a;
 }
 
-h2 {
-    font-size: 2rem;
-}
 
+#wrapper{
+    margin: 0 auto;
+}
 .button {
     padding: 5px;
     margin: 2%;
     cursor: pointer;
-    background-color: #ddd;
-}
-.highlighted {
-    background-color: yellow;
 }
 
 #list {
     width: 70%;
+    max-width: 1000px;
     float: left;
     padding: 50px;
     display: inline-block;
 }
-#add-item * {
+#addItem, .item {
+    padding: 5px 10px 0 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+#addItem {
+    position: relative;
+    border-bottom: 3px solid #666;
+}
+.inputSection {
+    margin-right: 50px;
+    font-size: 2rem;
+}
+.inputSection#add {
+    margin-right: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #abedab;
+    transition: color 0.5s;
+}
+.inputSection#add:hover {
+    color: #2dd22d;
+}
+input {
+    padding: 2px;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0);
+}
+input:focus {
+}
+input[type="number"] {
+    width: 75px;
+    text-align: right;
+    margin: 0 5px;
+}
+.highlighted {
+    background-color: #ffff99!important;
+}
+
+
+ul {
+    padding: 0;
+    list-style: 0;
+}
+#addItem * {
     display: inline-block;
 }
 .item {
     margin: 2% 0;
     list-style-type: none;
+    cursor: pointer;
+    font-size: 2rem;
+    border-bottom: 2px solid #999;
+    transition: background-color 0.5s;
+}
+.item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 .item::before {
     display: none;
     font-family: "Font Awesome 5 Free";
-    font-size: 2rem;
     content: "\f0c8";
 }
 .checked::before {
@@ -51,14 +102,10 @@ h2 {
 .item * {
     display: inline-block;
 }
-.item input[type=checkbox] {
-    opacity: 0;
-}
 
 
 #sidebar {
-    width: 25%;
-    float: right;
+    width: 250px;
     padding: 50px;
     display: inline-block;
 }
