@@ -24,17 +24,10 @@ function addItem() {
         var newItem = document.createElement("li");
         newItem.classList.add("item");
         newItem.setAttribute("value", itemName);
-        
-        //create checkbox
-        var newItemCheckbox = document.createElement("input");
-        newItemCheckbox.setAttribute("type", "checkbox");
-        newItemCheckbox.setAttribute("name", "checkbox");
+        newItem.setAttribute("onClick", "checked(this)");
         
         //create heading for name
         var newItemName = document.createElement("h2");
-       
-        //add checkbox to name heading
-        newItemName.appendChild(newItemCheckbox);
         
         //add item name to heading
         var newItemText = document.createTextNode(itemName);
@@ -63,11 +56,13 @@ function validItem(itemName) {
     }
 }
 
+function checked(item) {
+    item.classList.toggle("checked");
+}
+
 //clears all checked items from the list
 function clearItems() {
-    addCheckedClass();
-    
-    //create list of all divs with class "checked"
+        //create list of all divs with class "checked"
     var checkedItems = document.getElementsByClassName("checked");
     
     //remove every div with a checked box
@@ -79,8 +74,6 @@ function clearItems() {
 
 //toggles the higlight of checked items on/off
 function toggleHighlight() {
-    addCheckedClass();
-    
     var checkedItems = document.getElementsByClassName("checked");
     
     for(var i=0; i<checkedItems.length; i++) {
@@ -89,28 +82,15 @@ function toggleHighlight() {
 }
 
 
-//Adds the class "checked" to every item (div) with a checked checkbox
-function addCheckedClass() {
-     var checkboxes = document.getElementsByName("checkbox");
-    
-    for(var i=0; i<checkboxes.length; i++){
-        //get checkbox
-        if(checkboxes[i].checked) {
-           checkboxes[i].parentNode.parentNode.classList.add("checked");
-        } 
-    }
-}
-
-
 function sortItems() {
-    var i, swaping, items, swap;
+    var swaping, items, swap;
     var list = document.getElementById("listItems");
     
     do {
         swaping = false;
         items = list.getElementsByTagName("li");
         
-        for(i=0; i<(items.length-1); i++) {
+        for(var i=0; i<(items.length-1); i++) {
             swap = false;
             if(items[i].textContent > items[i+1].textContent) {
                 //swap items
