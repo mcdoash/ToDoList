@@ -7,12 +7,14 @@ document.getElementById("remove").addEventListener("click", clearItems);
 //event listener for highlight button
 document.getElementById("highlight").addEventListener("click", toggleHighlight);
 
-
+//event listener for colour picker
+document.getElementById("colourPicker").addEventListener("change", colourChange);
 
 //Adds the item entered by the user to the list
 function addItem() {
     //get value of item entered
     var itemName = document.forms["addItem"]["itemName"].value;
+    var colour = document.forms["addItem"]["colour"].value;
     var hours = document.forms["addItem"]["hours"].value;
     var minutes = document.forms["addItem"]["minutes"].value;
     var displayTime = false;
@@ -34,11 +36,13 @@ function addItem() {
     if(validItem(itemName)) {
         //clear form
         document.getElementById("addItem").reset();
+        colourChange();
         
         //create new div element to hold all the new item elements
         var newItem = document.createElement("li");
         newItem.classList.add("item");
         newItem.setAttribute("time", totalTime);
+        newItem.setAttribute("colour", colour);
         newItem.setAttribute("onClick", "checked(this)");
         
         //create heading for name
@@ -65,9 +69,10 @@ function addItem() {
         newItem.appendChild(timeHeading);
         }
         
-        
-        
-         
+        //change colour
+        newItem.style.color = colour;
+        newItem.firstChild.style.color = colour;
+        newItem.style.borderBottom = "2px solid " + colour;
         
         //get list and add new item
         var list = document.getElementById("listItems");
@@ -166,3 +171,8 @@ function sortItems(type, directon) {
 }
 
 
+function colourChange() {
+    var colourPicker = document.getElementById("colourPicker");
+    
+    colourPicker.parentElement.style.color = colourPicker.value;
+}

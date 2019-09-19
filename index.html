@@ -21,9 +21,13 @@
                         <input type="text" name="itemName" placeholder="Enter item...">
                     </div>
                     <div class="inputSection">
-                        <i class="far fa-clock fa-lg"></i>
+                        <i class="far fa-clock"></i>
                         <input type="number" name="hours" placeholder="0" min="0">H
                         <input type="number" name="minutes" placeholder="0" min="0" max="59">M
+                    </div>
+                    <div class="inputSection">
+                        <i class="fas fa-tint"></i>
+                        <input type="color" name="colour" id="colourPicker" value="#0000">
                     </div>
                     <div class="inputSection" id="add">
                         <i class="fas fa-plus fa-lg"></i>
@@ -36,10 +40,10 @@
             </div>
 
             <div id="sidebar">
-                <div id="remove" class="button"><h2>Clear Checked Items</h2></div>
-                <div id="highlight" class="button"><h2>Toggle Highlight</h2></div>
                 <div id="sort">
                     <h2>Sort</h2>
+                    <hr style="margin: 10px 0;"/>
+                    
                     <!--sort alphabetically ascending-->
                     <div class="sortOption">
                         <i class="fas fa-sort-alpha-up" onclick="sortItems(0, 0)" style="color: #006622;"></i>
@@ -48,6 +52,8 @@
                     <div class="sortOption">
                         <i class="fas fa-sort-alpha-down" onclick="sortItems(0, 1)" style="color: #660000;"></i>
                     </div>
+                    <hr style="margin: 10px 0;"/>
+                    
                     <!--sort by duration ascending-->
                     <div class="sortOption">
                         <i class="fas fa-sort-numeric-up" onclick="sortItems(1, 0)" style="color: #006622;"></i>
@@ -56,7 +62,17 @@
                     <div class="sortOption">
                         <i class="fas fa-sort-numeric-down" onclick="sortItems(1, 1)" style="color: #660000;"></i>
                     </div>
+                    <hr style="margin: 10px 0;"/>
+                    
+                    <!--sort by colour-->
+                    <div class="sortOption">
+                        <i class="fas fa-palette"></i>
+                    </div>
                 </div>
+                
+                
+                <hr style="margin-bottom: 50px; margin-top: 10px;"/>
+                <div id="remove" class="button"><h2>Clear Checked Items</h2></div>
             </div>
         </div>
     </body>
