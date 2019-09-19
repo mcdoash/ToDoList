@@ -22,6 +22,7 @@ h2 {
 
 #list {
     width: 70%;
+    float: left;
     padding: 50px;
     display: inline-block;
 }
@@ -33,14 +34,19 @@ h2 {
     list-style-type: none;
 }
 .item::before {
-    content: "\2610";
+    display: none;
+    font-family: "Font Awesome 5 Free";
     font-size: 2rem;
+    content: "\f0c8";
+}
+.checked::before {
+    content: "\f14a";
 }
 .checked h2 {
     text-decoration: line-through;
 }
-.checked::before {
-    content: "\2611"!important;
+.item h2 {
+    margin-left: 10px;
 }
 .item * {
     display: inline-block;
@@ -52,6 +58,7 @@ h2 {
 
 #sidebar {
     width: 25%;
+    float: right;
     padding: 50px;
     display: inline-block;
 }
