@@ -21,19 +21,13 @@ function addItem() {
         document.getElementById("add-item").reset();
         
         //create new div element to hold all the new item elements
-        var newItem = document.createElement("div");
+        var newItem = document.createElement("li");
         newItem.classList.add("item");
-        
-        //create checkbox
-        var newItemCheckbox = document.createElement("input");
-        newItemCheckbox.setAttribute("type", "checkbox");
-        newItemCheckbox.setAttribute("name", "checkbox");
+        newItem.setAttribute("value", itemName);
+        newItem.setAttribute("onClick", "checked(this)");
         
         //create heading for name
         var newItemName = document.createElement("h2");
-       
-        //add checkbox to name heading
-        newItemName.appendChild(newItemCheckbox);
         
         //add item name to heading
         var newItemText = document.createTextNode(itemName);
@@ -62,11 +56,13 @@ function validItem(itemName) {
     }
 }
 
+function checked(item) {
+    item.classList.toggle("checked");
+}
+
 //clears all checked items from the list
 function clearItems() {
-    addCheckedClass();
-    
-    //create list of all divs with class "checked"
+        //create list of all divs with class "checked"
     var checkedItems = document.getElementsByClassName("checked");
     
     //remove every div with a checked box
@@ -78,8 +74,6 @@ function clearItems() {
 
 //toggles the higlight of checked items on/off
 function toggleHighlight() {
-    addCheckedClass();
-    
     var checkedItems = document.getElementsByClassName("checked");
     
     for(var i=0; i<checkedItems.length; i++) {
@@ -88,35 +82,25 @@ function toggleHighlight() {
 }
 
 
-/*Adds the class "checked" to every item (div) with a checked checkbox
-function addCheckedClass() {
-     var listItems = document.getElementsByClassName("item");
-    
-    
-    for(var i=0; i<listItems.length; i++){
-        //get checkbox
-        var checkbox = listItems[i].firstChild.firstChild;
-        if(checkbox.checked) {
-           listItems[i].classList.add("checked");
-        } 
-    }
-}*/
-
-//Adds the class "checked" to every item (div) with a checked checkbox
-function addCheckedClass() {
-     var checkboxes = document.getElementsByName("checkbox");
-    
-    for(var i=0; i<checkboxes.length; i++){
-        //get checkbox
-        if(checkboxes[i].checked) {
-           checkboxes[i].parentNode.parentNode.classList.add("checked");
-        } 
-    }
-}
-
-
 function sortItems() {
-    //sort items alphanumerically
+    var swaping, items, swap;
+    var list = document.getElementById("listItems");
     
-    //remove element and append it to the top of the list
+    do {
+        swaping = false;
+        items = list.getElementsByTagName("li");
+        
+        for(var i=0; i<(items.length-1); i++) {
+            swap = false;
+            if(items[i].textContent > items[i+1].textContent) {
+                //swap items
+                items[i].parentNode.insertBefore(items[i+1], items[i]);
+            swaping = true;
+                break;
+            }
+        }
+        
+    } while(swaping);
 }
+
+
