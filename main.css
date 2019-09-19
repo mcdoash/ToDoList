@@ -12,14 +12,21 @@ html {
     margin: 0 auto;
 }
 .button {
-    padding: 5px;
+    padding: 10px;
     margin: 2%;
+    text-align: center;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
+    transition: background-color 0.5s;
+}
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 #list {
-    width: 70%;
-    max-width: 1000px;
     float: left;
     padding: 50px;
     display: inline-block;
@@ -34,15 +41,20 @@ html {
     border-bottom: 3px solid #666;
 }
 .inputSection {
-    margin-right: 50px;
+    height: 3rem;
+    margin-right: 25px;
+    padding-right: 25px;
     font-size: 2rem;
+    border-right: 2px solid #ddd;
 }
+
 .inputSection#add {
     margin-right: 0;
+    color: #abedab;
+    cursor: pointer;
     position: absolute;
     right: 0;
-    top: 0;
-    color: #abedab;
+    border: none;
     transition: color 0.5s;
 }
 .inputSection#add:hover {
@@ -54,8 +66,6 @@ input {
     outline: none;
     font-size: 2rem;
     background-color: rgba(0, 0, 0, 0);
-}
-input:focus {
 }
 input[type="number"] {
     width: 75px;
@@ -79,6 +89,7 @@ ul {
     list-style-type: none;
     cursor: pointer;
     font-size: 2rem;
+    color: #999;
     border-bottom: 2px solid #999;
     transition: background-color 0.5s;
 }
@@ -93,19 +104,41 @@ ul {
 .checked::before {
     content: "\f14a";
 }
-.checked h2 {
+.checked h2:first-of-type {
     text-decoration: line-through;
 }
 .item h2 {
+    margin-right: 50px;
     margin-left: 10px;
+}
+.item h2:first-of-type {
+    width: 570px;
+    color: #1a1a1a;
 }
 .item * {
     display: inline-block;
 }
 
-
 #sidebar {
     width: 250px;
-    padding: 50px;
+    margin: 50px;
+    float: right;
     display: inline-block;
+}
+
+.sortOption {
+    width: 100px;
+    padding: 10px 5px;
+    margin: 10px;
+    font-size: 4rem;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: background-color 0.5s;
+}
+.sortOption:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
