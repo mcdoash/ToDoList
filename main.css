@@ -7,10 +7,6 @@ html {
     color: #1a1a1a;
 }
 
-
-#wrapper{
-    margin: 0 auto;
-}
 .button {
     padding: 10px;
     margin: 2%;
@@ -38,7 +34,12 @@ html {
 
 #addItem {
     position: relative;
-    border-bottom: 3px solid #666;
+    margin-bottom: 50px;
+    border: 3px solid #666;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+#addItem * {
+    display: inline-block;
 }
 .inputSection {
     height: 3rem;
@@ -51,13 +52,15 @@ html {
 
 .inputSection#add {
     margin-right: 0;
-    color: #abedab;
+    color: #999;
     cursor: pointer;
+    position: absolute;
+    right: 0;
     border: none;
-    transition: color 0.5s;
+    transition: color 0.75s;
 }
 .inputSection#add:hover {
-    color: #2dd22d;
+    color: #000;
 }
 input {
     padding: 2px;
@@ -80,17 +83,11 @@ input[type="color"] {
     left: -30px;
     bottom: 0;
 }
-.highlighted {
-    background-color: #ffff99!important;
-}
 
 
 ul {
     padding: 0;
     list-style: 0;
-}
-#addItem * {
-    display: inline-block;
 }
 .item {
     margin: 2% 0;
@@ -100,6 +97,7 @@ ul {
     color: #999;
     border-bottom: 2px solid #999;
     transition: background-color 0.5s;
+    transition: opacity 0.5s;
 }
 .item:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -109,11 +107,11 @@ ul {
     font-family: "Font Awesome 5 Free";
     content: "\f0c8";
 }
+.checked {
+    opacity: 0.3;
+}
 .checked::before {
     content: "\f14a";
-}
-.checked h2:first-of-type {
-    text-decoration: line-through;
 }
 .item h2 {
     margin-right: 50px;
@@ -134,6 +132,10 @@ ul {
     display: inline-block;
 }
 
+#sort h2 {
+    font-size: 3rem;
+    text-align: center;
+}
 .sortOption {
     width: 100px;
     padding: 10px 5px;

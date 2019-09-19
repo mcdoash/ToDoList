@@ -4,9 +4,6 @@ document.getElementById("add").addEventListener("click", addItem);
 //event listener for remove button
 document.getElementById("remove").addEventListener("click", clearItems);
 
-//event listener for highlight button
-document.getElementById("highlight").addEventListener("click", toggleHighlight);
-
 //event listener for colour picker
 document.getElementById("colourPicker").addEventListener("change", colourChange);
 
@@ -108,16 +105,6 @@ function clearItems() {
         checkedItems[0].parentNode.removeChild(checkedItems[0]);
     }
 }
-    
-
-//toggles the higlight of checked items on/off
-function toggleHighlight() {
-    var checkedItems = document.getElementsByClassName("checked");
-    
-    for(var i=0; i<checkedItems.length; i++) {
-        checkedItems[i].classList.toggle("highlighted");
-    }
-}
 
 
 function sortItems(type, directon) {
@@ -145,8 +132,8 @@ function sortItems(type, directon) {
                     a = items[i+1].textContent;
                 }
             }
-            //second type (duration)
-            else {
+            //if second type (duration)
+            else if(type == 1) {
                 //if sorting ascending
                 if(directon == 0){
                     a = items[i].getAttribute("time");
@@ -157,6 +144,10 @@ function sortItems(type, directon) {
                     b = items[i].getAttribute("time");
                     a = items[i+1].getAttribute("time");
                 }
+            }
+            else {
+                a = items[i].getAttribute("colour");
+                    b = items[i+1].getAttribute("colour");
             }
             
             if(a > b) {
