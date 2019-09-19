@@ -21,8 +21,9 @@ function addItem() {
         document.getElementById("add-item").reset();
         
         //create new div element to hold all the new item elements
-        var newItem = document.createElement("div");
+        var newItem = document.createElement("li");
         newItem.classList.add("item");
+        newItem.setAttribute("value", itemName);
         
         //create checkbox
         var newItemCheckbox = document.createElement("input");
@@ -102,37 +103,24 @@ function addCheckedClass() {
 
 
 function sortItems() {
-    //sort items alphanumerically
-    var item = document.getElementsByClassName("item");
+    var i, swaping, items, swap;
     var list = document.getElementById("listItems");
-    var text = [];
     
-    for(var i=0; i<item.length; i++) {
-        text.push(item[i].textContent);
-    }
-    
-    var h = []
-    for(var i=0; i<item.length; i++) {
-        h.push([i, text[i]]);
-    }
-    
-    h.sort(secondColumnSort);
-    
-    //remove element and append it to the top of the list
-    for(var i=0; i<item.length; i++) {
-        console.log(item[h[i][0]].textContent);
-        list.insertBefore(item[h[i][0]], list.childNodes.firstChild);
-        list.removeChild(list.childNodes[h[i][0]]);
-    }
+    do {
+        swaping = false;
+        items = list.getElementsByTagName("li");
+        
+        for(i=0; i<(items.length-1); i++) {
+            swap = false;
+            if(items[i].textContent > items[i+1].textContent) {
+                //swap items
+                items[i].parentNode.insertBefore(items[i+1], items[i]);
+            swaping = true;
+                break;
+            }
+        }
+        
+    } while(swaping);
 }
 
 
-
-function secondColumnSort(a, b) {
-    if (a[1] == b[1]) {
-        return 0;
-    }
-    else {
-        return (a[1] < b[1]) ? -1 : 1;
-    }
-}
