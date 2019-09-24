@@ -45,7 +45,7 @@ function addItem() {
         newItem.classList.add("item");
         newItem.setAttribute("time", totalTime); //set values entered for easy sorting later
         newItem.setAttribute("colour", colour);
-        newItem.addEventListener("click", checked(this)); //add event listener to check off item when clicked
+        newItem.setAttribute("onClick", "checked(this)"); //check off item when clicked
         
         
         var nameHeading = document.createElement("h2"); //create heading for name
