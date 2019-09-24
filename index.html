@@ -3,6 +3,10 @@
     <head>
         <title>To Do List</title>
         
+        <!--meta data-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        
         <!--fonts and icons-->
         <script src="https://kit.fontawesome.com/815e3fa0ad.js" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-search-pseudo-elements></script>
@@ -15,31 +19,45 @@
     
     <body>
         <div id="wrapper">
+            
+            <!--contains the form to add a new item and all items added-->
             <div id="list">
                 <form name="addItem" id="addItem">
+                    
+                    <!--input for item name-->
                     <div class="inputSection">
                         <input type="text" name="itemName" placeholder="Enter item...">
                     </div>
+                    
+                    <!--input for duration-->
                     <div class="inputSection">
                         <i class="far fa-clock"></i>
                         <input type="number" name="hours" placeholder="0" min="0">H
                         <input type="number" name="minutes" placeholder="0" min="0" max="59">M
                     </div>
+                    
+                    <!--input for colour-->
                     <div class="inputSection">
                         <i class="fas fa-tint"></i>
                         <input type="color" name="colour" id="colourPicker" value="#0000">
                     </div>
+                    
+                    <!--add item button-->
                     <div class="inputSection" id="add">
                         <i class="fas fa-plus fa-lg"></i>
                     </div>
                 </form>
 
+                <!--actual list contents-->
                 <ul id="listItems">
                     <!--list items will appear here as they are added by user-->
                 </ul>
             </div>
 
+            <!--list operation menu-->
             <div id="sidebar">
+                
+                <!--sort options-->
                 <div id="sort">
                     <h2>Sort</h2>
                     <hr style="margin: 10px 0;"/>
@@ -69,13 +87,14 @@
                         <i class="fas fa-palette" onclick="sortItems(2, 0)"></i>
                     </div>
                 </div>
-                
-                
                 <hr style="margin-bottom: 50px; margin-top: 10px;"/>
+                
+                <!--remove checked items button-->
                 <div id="remove" class="button"><h2>Clear Checked Items</h2></div>
             </div>
         </div>
     </body>
 
+    <!--link to javascript file-->
     <script src="script.js"></script>
 </html>

@@ -1,11 +1,14 @@
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 html {
     font-size: 16px;
     color: #1a1a1a;
 }
+
+
 
 .button {
     padding: 10px;
@@ -22,16 +25,19 @@ html {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+
+
 #list {
+    min-width: 960px;
     float: left;
     padding: 50px;
     display: inline-block;
 }
+
 #addItem, .item {
     padding: 5px 10px 0 10px;
     border-radius: 5px 5px 0 0;
 }
-
 #addItem {
     position: relative;
     margin-bottom: 50px;
@@ -41,6 +47,7 @@ html {
 #addItem * {
     display: inline-block;
 }
+
 .inputSection {
     height: 3rem;
     margin-right: 25px;
@@ -49,7 +56,6 @@ html {
     font-size: 2rem;
     border-right: 2px solid #ddd;
 }
-
 .inputSection#add {
     margin-right: 0;
     color: #999;
@@ -62,6 +68,7 @@ html {
 .inputSection#add:hover {
     color: #000;
 }
+
 input {
     padding: 2px;
     border: none;
@@ -74,6 +81,7 @@ input[type="number"] {
     text-align: right;
     margin: 0 5px;
 }
+/*overriding by setting opacity to zero, effective area is entire space*/
 input[type="color"] {
     width: 80px;
     height: 70px;
@@ -97,7 +105,7 @@ ul {
     color: #999;
     border-bottom: 2px solid #999;
     transition: background-color 0.5s;
-    transition: opacity 0.5s;
+    transition: opacity 2s;
 }
 .item:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -106,12 +114,6 @@ ul {
     display: none;
     font-family: "Font Awesome 5 Free";
     content: "\f0c8";
-}
-.checked {
-    opacity: 0.3;
-}
-.checked::before {
-    content: "\f14a";
 }
 .item h2 {
     margin-right: 50px;
@@ -124,6 +126,15 @@ ul {
 .item * {
     display: inline-block;
 }
+
+.checked {
+    opacity: 0.3;
+}
+.checked::before {
+    content: "\f14a";
+}
+
+
 
 #sidebar {
     width: 250px;
