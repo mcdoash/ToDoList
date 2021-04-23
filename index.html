@@ -1,100 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>To Do List</title>
-        
-        <!--meta data-->
+        <title>To-Do List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        
-        <!--fonts and icons-->
+
         <script src="https://kit.fontawesome.com/815e3fa0ad.js" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-search-pseudo-elements></script>
   
-        
-        <!--stylesheet-->
         <link rel="stylesheet" href="main.css">
-        
     </head>
     
     <body>
-        <div id="wrapper">
+        <header>
+            <h1>To-Do List</h1>
             
-            <!--contains the form to add a new item and all items added-->
-            <div id="list">
-                <form name="addItem" id="addItem">
-                    
-                    <!--input for item name-->
-                    <div class="inputSection">
-                        <input type="text" name="itemName" placeholder="Enter item...">
-                    </div>
-                    
-                    <!--input for duration-->
-                    <div class="inputSection">
-                        <i class="far fa-clock"></i>
-                        <input type="number" name="hours" placeholder="0" min="0">H
-                        <input type="number" name="minutes" placeholder="0" min="0" max="59">M
-                    </div>
-                    
-                    <!--input for colour-->
-                    <div class="inputSection">
-                        <i class="fas fa-tint"></i>
-                        <input type="color" name="colour" id="colourPicker" value="#0000">
-                    </div>
-                    
-                    <!--add item button-->
-                    <div class="inputSection" id="add">
-                        <i class="fas fa-plus fa-lg"></i>
-                    </div>
-                </form>
+            <select name="sort" id="sort" onchange="sortItems(); buildList()">
+                <option value="" selected="true" disabled>&nbsp;Sort List Items</option>
+                <option value="created">Created</option>
+                <option value="alphaAsc">Name, low to high</option>
+                <option value="alphaDesc">Name, high to low</option>
+                <option value="timeAsc">Time, low to high</option>
+                <option value="timeDesc">Time, high to low</option>
+                <option value="colour">Colour</option>
+            </select>
 
-                <!--actual list contents-->
-                <ul id="listItems">
-                    <!--list items will appear here as they are added by user-->
-                </ul>
-            </div>
+            <div id="remove" onclick="clearItems()">Clear Checked</div>
+        </header>
 
-            <!--list operation menu-->
-            <div id="sidebar">
-                
-                <!--sort options-->
-                <div id="sort">
-                    <h2>Sort</h2>
-                    <hr style="margin: 10px 0;"/>
-                    
-                    <!--sort alphabetically ascending-->
-                    <div class="sortOption">
-                        <i class="fas fa-sort-alpha-up" onclick="sortItems(0, 0)" style="color: #006622;"></i>
-                    </div>
-                    <!--sort alphabetically descending-->
-                    <div class="sortOption">
-                        <i class="fas fa-sort-alpha-down" onclick="sortItems(0, 1)" style="color: #660000;"></i>
-                    </div>
-                    <hr style="margin: 10px 0;"/>
-                    
-                    <!--sort by duration ascending-->
-                    <div class="sortOption">
-                        <i class="fas fa-sort-numeric-up" onclick="sortItems(1, 0)" style="color: #006622;"></i>
-                    </div>
-                    <!--sort by duration descending-->
-                    <div class="sortOption">
-                        <i class="fas fa-sort-numeric-down" onclick="sortItems(1, 1)" style="color: #660000;"></i>
-                    </div>
-                    <hr style="margin: 10px 0;"/>
-                    
-                    <!--sort by colour-->
-                    <div class="sortOption">
-                        <i class="fas fa-palette" onclick="sortItems(2, 0)"></i>
-                    </div>
+        <div id="list">
+            <ul id="listItems"></ul>
+
+            <form name="new-item" id="new-item">
+                <div class="section">
+                    <input type="text" name="name" placeholder="+ Add a new item">
                 </div>
-                <hr style="margin-bottom: 50px; margin-top: 10px;"/>
                 
-                <!--remove checked items button-->
-                <div id="remove" class="button"><h2>Clear Checked Items</h2></div>
-            </div>
+                <div class="section">
+                    <i class="far fa-clock"></i>
+                    <input type="number" name="hours" placeholder="0" min="0" step="1">h
+                    <input type="number" name="minutes" placeholder="0" min="0" max="59" step="1">m
+                </div>
+                
+                <div class="section">
+                    <i class="fas fa-tint"></i>
+                    <input type="color" name="colour" id="colourPicker" onchange="colourIndicator()" value="#000000">
+                </div>
+                
+                <div class="section" id="add">
+                    <i class="fas fa-plus fa-lg" onclick="newItem()"></i>
+                </div>
+            </form>
         </div>
     </body>
 
-    <!--link to javascript file-->
     <script src="script.js"></script>
 </html>
