@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>To-Do List</title>
+        <meta name="author" content="Ashley McDonald 101119938">
+
+        <script src="https://kit.fontawesome.com/815e3fa0ad.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-search-pseudo-elements></script>
+  
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <div id="choose-list">
+            <h1>To-Do Lists</h1>
+            <div id="masterlist"></div>
+
+            <form id="create-list" name="create-list">
+                <div class="section">
+                    <input type="text" name="name" placeholder="+ New list name">
+                </div>
+                <div class="section">
+                    <button type="button" onclick="createList()">Create</button> 
+                </div>
+            </form>
+        </div>
+
+        <div id="show-list">
+            <header>
+                <i id="back-btn" class="fas fa-arrow-left" onclick="openMasterlist()"></i>
+                <h1 id="title"></h1>
+                
+                <select name="sort" id="sort" onchange="sortItems()">
+                    <option value="" selected="true" disabled> &nbsp;Sort List Items</option>
+                    <option value="created">Created</option>
+                    <option value="alphaAsc">Name, low to high</option>
+                    <option value="alphaDesc">Name, high to low</option>
+                    <option value="timeAsc">Time, low to high</option>
+                    <option value ="timeDesc">Time, high to low</option>
+                    <option value="colour">Colour</option>
+                </select>
+
+                <button id="remove" onclick="clearRequest()">Clear Checked</button>
+            </header>
+
+            <div id="list">
+                <ul id="listItems"></ul>
+
+                <form name="new-item" id="new-item">
+                    <div class="section">
+                        <input type="text" name="name" placeholder="+ Add a new item">
+                    </div>
+                    
+                    <div class="section">
+                        <i class="far fa-clock"></i>
+                        <input type="number" name="hours" placeholder="0" min="0" step="1">
+                        <p>h</p>
+                        <input type="number" name="minutes" placeholder="0" min="0" max="59" step="1">
+                        <p>m</p>
+                    </div>
+                    
+                    <div class="section">
+                        <i class="fas fa-tint"></i>
+                        <input type="color" name="colour" id="colourPicker" onchange="colourIndicator()" value="#000000">
+                    </div>
+                    
+                    <div id="add" class="section">
+                        <i class="fas fa-plus fa-lg" onclick="newItem()"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="todo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.1.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "todolist",
+  "description": "Simple to-do list app created for COMP2406 using Express and Socket.io.",
+  "version": "3.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcdoash/ToDoList.git"
+  },
+  "author": "Ashley McDonald",
+  "bugs": {
+    "url": "https://github.com/mcdoash/ToDoList/issues"
+  },
+  "homepage": "https://github.com/mcdoash/ToDoList#readme"
+}
